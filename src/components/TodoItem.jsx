@@ -2,10 +2,10 @@ import React from "react";
 
 function TodoItem(props) {
     return (
-        <li>
-            <span>C</span>
+        <li className="list-item">
+            <span className="item-c">⬜</span>
             <p>{props.text}</p>
-            <span>X</span>
+            <span className="item-x">❌</span>
         </li>
     )
 }

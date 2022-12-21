@@ -4,7 +4,6 @@ import { TodoSearch } from "./components/TodoSearch";
 import { TodoList } from "./components/TodoList";
 import { TodoItem } from "./components/TodoItem";
 import { CreateTodoButton } from "./components/CreateTodoButton";
-//import './App.css';
 
 //Lista falsa de TODOs
 const todos = [
@@ -17,7 +16,8 @@ const todos = [
 function App() {
   return (
     // Etiqueta invisible
-    <>
+    <div className="container">
+      <h1>What's Up! 😎</h1>
       <TodoCounter />
       <TodoSearch />
 
@@ -26,7 +26,7 @@ function App() {
       </TodoList>
 
       <CreateTodoButton />
-    </>
+    </div>
   );
 }
 
