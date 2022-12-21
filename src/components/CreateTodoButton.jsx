@@ -1,9 +1,15 @@
 import React from "react";
 
 function CreateTodoButton() {
-    return (
-        <button className="btn-add">+</button>
-    )
+  const onClickButton = (msg) => {
+    alert(msg);
+  };
+
+  return (
+    <button className="btn-add" onClick={() => onClickButton("Holiii")}>
+      +
+    </button>
+  );
 }
 
 export { CreateTodoButton };
