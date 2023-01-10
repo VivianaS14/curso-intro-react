@@ -1,37 +1,18 @@
 import React, { useState } from "react";
 import { AppUI } from "./components/AppUI";
+import { useLocalStorage } from "./utils/useLocalStorage";
 
 //Lista falsa de TODOs
 /* const defaultTodos = [
   { text: 'Cortar cebolla', completed: true },
   { text: 'Tomar el curso de intro a React', completed: false },
   { text: 'Llorar con la llorona', completed: false },
-  { text: 'Hacer el sprint', completed: false },
-  { text: 'Comprar papas', completed: false },
-  { text: 'Jugar los sims', completed: false },
-  { text: 'Lavar la loza', completed: false },
   { text: 'LALALAL', completed: false },
 ] */
 
 function App() {
-  //Traer todos del local storage
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos;
-
-  //si localstorage es nulo o vacio
-  if (!localStorageTodos) {
-    //crea un array vacio
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
-  } else {
-    //parse los todos del local
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-
-
-
-  //Estado para el array de objetos todo
-  const [todos, setTodos] = useState(parsedTodos);
+  //usamos el custom hook del local storage
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
 
   //Estado para TodoSearch
   const [searchValue, setSearchValue] = useState("");
@@ -52,12 +33,7 @@ function App() {
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
 
-  //Guardar los cambios al localstorage y renderizar de nuevo
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
-  }
+
 
   //Completar todos
   const completeTodo = (text) => {
