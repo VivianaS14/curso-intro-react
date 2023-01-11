@@ -14,6 +14,8 @@ const TodoProvider = (props) => {
 
   //Estado para TodoSearch
   const [searchValue, setSearchValue] = useState("");
+  //Estado para abrir el modal
+  const [openModal, setOpenModal] = useState(false);
 
   //Buscador
   let searchedTodos = [];
@@ -63,6 +65,8 @@ const TodoProvider = (props) => {
         searchedTodos,
         completeTodo,
         deleteTodo,
+        openModal,
+        setOpenModal,
       }}
     >
       {props.children}

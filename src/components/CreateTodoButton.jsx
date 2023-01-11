@@ -1,12 +1,12 @@
 import React from "react";
 
-function CreateTodoButton() {
-  const onClickButton = (msg) => {
-    alert(msg);
+function CreateTodoButton({ openModal, setOpenModal }) {
+  const onClickButton = () => {
+    setOpenModal(!openModal);
   };
 
   return (
-    <button className="btn-add" onClick={() => onClickButton("Holiii")}>
+    <button className="btn-add" onClick={onClickButton}>
       +
     </button>
   );
