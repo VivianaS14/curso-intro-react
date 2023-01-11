@@ -9,7 +9,11 @@ const useLocalStorage = (itemName, initialValue) => {
   //Estado para el array de objetos todo
   const [item, setItem] = useState(initialValue);
 
-  //useEffect
+  //useEffect -> Ejecuta el codigo que le enviemos justo antes de renderizar todos los componentes
+  /* useEffect(() => {
+    console.log('use effect');
+  }, [totalTodos]); */
+  //El segundo parametro define cuando se ejecuta el use effect, al momento en que cambia el valor de total tod
   useEffect(() => {
     setTimeout(() => {
       try {
