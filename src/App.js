@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AppUI } from "./components/AppUI";
 import { useLocalStorage } from "./utils/useLocalStorage";
 
@@ -12,7 +12,7 @@ import { useLocalStorage } from "./utils/useLocalStorage";
 
 function App() {
   //usamos el custom hook del local storage
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1', []);
 
   //Estado para TodoSearch
   const [searchValue, setSearchValue] = useState("");
@@ -32,8 +32,6 @@ function App() {
   //Contar todos
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
-
-
 
   //Completar todos
   const completeTodo = (text) => {
@@ -55,8 +53,16 @@ function App() {
     saveTodos(newTodos);
   }
 
+  //useEffect -> Ejecuta el codigo que le enviemos justo antes de renderizar todos los componentes
+  /* useEffect(() => {
+    console.log('use effect');
+  }, [totalTodos]); */
+  //El segundo parametro define cuando se ejecuta el use effect, al momento en que cambia el valor de total tod
+
   return (
     <AppUI
+      loading={loading}
+      error={error}
       completedTodos={completedTodos}
       totalTodos={totalTodos}
       searchValue={searchValue}

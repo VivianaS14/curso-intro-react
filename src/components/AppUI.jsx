@@ -7,35 +7,41 @@ import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 
 function AppUI({
-    completedTodos,
-    totalTodos,
-    searchValue,
-    setSearchValue,
-    searchedTodos,
-    completeTodo,
-    deleteTodo
+  loading,
+  error,
+  completedTodos,
+  totalTodos,
+  searchValue,
+  setSearchValue,
+  searchedTodos,
+  completeTodo,
+  deleteTodo,
 }) {
-    return (
-        <div className="container">
-            <h1>What's Up! 😎</h1>
-            <TodoCounter complete={completedTodos} total={totalTodos} />
-            <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+  return (
+    <div className="container">
+      <h1>What's Up! 😎</h1>
+      <TodoCounter complete={completedTodos} total={totalTodos} />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
-            <TodoList>
-                {searchedTodos.map(todo => (
-                    <TodoItem
-                        key={todo.text}
-                        text={todo.text}
-                        completed={todo.completed}
-                        onCompleted={() => completeTodo(todo.text)}
-                        onDeleted={() => deleteTodo(todo.text)}
-                    />
-                ))}
-            </TodoList>
+      <TodoList>
+        {error && <p>Desesperate, hubo un error...</p>}
+        {loading && <p>Estamos cargando, no desesperes...</p>}
+        {!loading && !searchedTodos.length && <p>Crea tu primer TODO!</p>}
 
-            <CreateTodoButton />
-        </div>
-    );
+        {searchedTodos.map((todo) => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onCompleted={() => completeTodo(todo.text)}
+            onDeleted={() => deleteTodo(todo.text)}
+          />
+        ))}
+      </TodoList>
+
+      <CreateTodoButton />
+    </div>
+  );
 }
 
 export { AppUI };
