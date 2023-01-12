@@ -53,6 +53,18 @@ const TodoProvider = (props) => {
     saveTodos(newTodos);
   };
 
+  //Añadir todos
+  const addTodo = (text) => {
+    //Copia exacta de el array todos
+    const newTodos = [...todos];
+    newTodos.push({
+      completed: false,
+      text: text,
+    });
+    //Rerender de los componentes, recibe el nuevo objeto modificado en la propiedad complete
+    saveTodos(newTodos);
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -63,6 +75,7 @@ const TodoProvider = (props) => {
         searchValue,
         setSearchValue,
         searchedTodos,
+        addTodo,
         completeTodo,
         deleteTodo,
         openModal,

@@ -1,3 +1,5 @@
+import React from "react";
+
 const { createPortal } = require("react-dom");
 
 const Modal = ({ children }) => {
