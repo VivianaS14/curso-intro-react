@@ -1,4 +1,5 @@
 import React from "react";
+import { TiDelete } from "react-icons/ti";
 
 function TodoItem(props) {
   return (
@@ -10,9 +11,12 @@ function TodoItem(props) {
       <p className={`item-p ${props.completed && "item-completed"}`}>
         {props.text}
       </p>
-      <span className="item-x" onClick={props.onDeleted}>
-        ❌
-      </span>
+      <TiDelete
+        className="item-x"
+        onClick={props.onDeleted}
+        size="2.3em"
+        color="#F92F60"
+      />
     </li>
   );
 }

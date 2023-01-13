@@ -12,7 +12,9 @@ const TodoForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addTodo(newTodoValue);
+    if (!!newTodoValue) {
+      addTodo(newTodoValue);
+    }
     setOpenModal(false);
   };
 
@@ -22,7 +24,7 @@ const TodoForm = () => {
     <form onSubmit={onSubmit}>
       <label>Escribe tu nuevo TODO</label>
       <textarea
-        placeholder="Cortar cebolla del almuerzo"
+        placeholder="To Do..."
         value={newTodoValue}
         onChange={onChange}
       />
@@ -30,11 +32,11 @@ const TodoForm = () => {
         <button
           type="button"
           onClick={onCancel}
-          className="TodoForm-button TodoForm-button--cancel"
+          className="btn-form btn-form-cancel"
         >
           Cancelar
         </button>
-        <button type="submit" className="TodoForm-button TodoForm-button--add">
+        <button type="submit" className="btn-form btn-form-add">
           Añadir
         </button>
       </div>
