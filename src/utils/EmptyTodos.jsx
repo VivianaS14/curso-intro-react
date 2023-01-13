@@ -7,7 +7,7 @@ const EmptyTodos = () => {
   return (
     <>
       <img src={IMG_LINK} alt="" width="300" />
-      <h3>Crea tu primer To Do!</h3>
+      <h3>Create your first To-Do!</h3>
     </>
   );
 };

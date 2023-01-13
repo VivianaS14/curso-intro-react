@@ -20,7 +20,7 @@ function TodoSearch() {
         <input
           className="input"
           type="search"
-          placeholder="Buscar"
+          placeholder="Search"
           value={searchValue}
           onChange={onSearchValueChange}
         />

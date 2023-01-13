@@ -8,8 +8,8 @@ const TodosError = ({ error }) => {
         alt=""
         width="300"
       />
-      <h3>Ups parece que tenemos un problema!</h3>
-      <h3>Intenta mas tarde!</h3>
+      <h3>Ups, seems we have a trouble!</h3>
+      <h3>Try later!</h3>
     </>
   );
 };

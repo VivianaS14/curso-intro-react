@@ -6,7 +6,7 @@ function TodoCounter() {
 
   return (
     <h3>
-      Has completado {completedTodos} de {totalTodos} To Do's
+      You have completed {completedTodos} out of {totalTodos} To-Do's
     </h3>
   );
 }
