@@ -15,3 +15,8 @@ En este proyecto podemos encontrar:
 Aparte se encuentra estilizado con SASS y se implemento react-icons.
 
 Link del deploy: https://vivianas14.github.io/curso-intro-react/
+
+
+
+https://user-images.githubusercontent.com/97071902/220231512-774fd30f-959f-41e4-895e-6b52c4a95ca2.mp4
+
